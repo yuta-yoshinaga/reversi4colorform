@@ -25,7 +25,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ReversiForm
+namespace Reversi4colorForm
 {
 	////////////////////////////////////////////////////////////////////////////////
 	///	@class		SettingForm

@@ -1,4 +1,4 @@
-﻿namespace ReversiForm
+﻿namespace Reversi4colorForm
 {
     partial class Reversi
     {

@@ -21,7 +21,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 
-namespace ReversiForm
+namespace Reversi4colorForm
 {
 	////////////////////////////////////////////////////////////////////////////////
 	///	@class		ReversiSetting

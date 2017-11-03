@@ -18,7 +18,7 @@
 using System;
 using System.Drawing;
 
-namespace ReversiForm
+namespace Reversi4colorForm
 {
 	////////////////////////////////////////////////////////////////////////////////
 	///	@class		HslColor

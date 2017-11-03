@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ReversiForm
+namespace Reversi4colorForm
 {
     static class Program
     {

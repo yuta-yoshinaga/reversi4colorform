@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ReversiForm.Properties
+namespace Reversi4colorForm.Properties
 {
 
 

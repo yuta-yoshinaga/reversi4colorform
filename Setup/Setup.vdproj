@@ -197,7 +197,7 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:ReversiForm"
+        "ProductName" = "8:Reversi4colorForm"
         "ProductCode" = "8:{2392404E-98F9-402F-845A-CC39970A8562}"
         "PackageCode" = "8:{2F6AEF42-B15C-46AE-83AE-C530CE23691A}"
         "UpgradeCode" = "8:{D8364FF6-59CB-4926-9C9B-F60A4830BF69}"
@@ -210,7 +210,7 @@
         "Manufacturer" = "8:Y.Y Magic"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:https://yymagic.web.fc2.com/"
-        "Title" = "8:ReversiForm"
+        "Title" = "8:Reversi4colorForm"
         "Subject" = "8:"
         "ARPCONTACT" = "8:Y.Y Magic"
         "Keywords" = "8:"
@@ -321,7 +321,7 @@
         {
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_42BFC8C2907641BAA6EB7487DE8BE5B2"
             {
-            "Name" = "8:ReversiForm"
+            "Name" = "8:Reversi4colorForm"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
@@ -335,7 +335,7 @@
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_51AD995864CF48198DC044E01E57B203"
             {
-            "Name" = "8:ReversiForm"
+            "Name" = "8:Reversi4colorForm"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
@@ -748,7 +748,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_3CE137C435C44CAE8235FBA1D1570FFB"
             {
-            "SourcePath" = "8:..\\ReversiForm\\obj\\Release\\ReversiForm.exe"
+            "SourcePath" = "8:..\\Reversi4colorForm\\obj\\Release\\Reversi4colorForm.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_0EC368C8D45B41169B756295837DD7FD"

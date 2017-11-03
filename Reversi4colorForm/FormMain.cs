@@ -30,7 +30,7 @@ using System.Timers;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 
-namespace ReversiForm
+namespace Reversi4colorForm
 {
 	////////////////////////////////////////////////////////////////////////////////
 	///	@class		FormMain
