@@ -1,0 +1,7 @@
+<map id="Reversi4colorForm.ReversiPlay.drawUpdateForcibly" name="Reversi4colorForm.ReversiPlay.drawUpdateForcibly">
+<area shape="rect" id="node2" href="$class_reversi4color_form_1_1_reversi_play.html#a32c01f1f57a7413cd5173637800f74b7" title="リセット処理 " alt="" coords="230,64,405,105"/>
+<area shape="rect" id="node6" href="$class_reversi4color_form_1_1_reversi.html#afacffb0f4d383892677acfd1b7304606" title="リサイズイベント " alt="" coords="228,129,407,171"/>
+<area shape="rect" id="node3" href="$class_reversi4color_form_1_1_reversi.html#a6c7543d2823cf116c55bba3b970e4931" title="リセットクリック " alt="" coords="455,5,677,47"/>
+<area shape="rect" id="node5" href="$class_reversi4color_form_1_1_reversi.html#a99a5abaa127633df40da37167d579541" title="セッティングクリック " alt="" coords="455,71,677,112"/>
+<area shape="rect" id="node4" href="$class_reversi4color_form_1_1_reversi.html#a9eb7787e255c6aab7c75d6f0730e579e" title="デザイナー サポートに必要なメソッドです。このメソッドの内容を コード エディターで変更しないでください..." alt="" coords="725,71,904,112"/>
+</map>

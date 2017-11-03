@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['l',['L',['../class_reversi_form_1_1_hsl_color.html#a89e26c46eff241c066507625ddd5dc22',1,'ReversiForm::HslColor']]]
+  ['l',['L',['../class_reversi4color_form_1_1_hsl_color.html#a5d138402c61ef3bae7abe2c9c6d765dd',1,'Reversi4colorForm::HslColor']]]
 ];

@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['button1_5fclick',['button1_Click',['../class_reversi_form_1_1_reversi.html#a832e3ee4b606141b3feefb47742b3849',1,'ReversiForm::Reversi']]],
-  ['button2_5fclick',['button2_Click',['../class_reversi_form_1_1_reversi.html#aa908556d4f216f8b407c1458e392dfc5',1,'ReversiForm::Reversi']]],
-  ['buttoncancel_5fclick',['buttonCancel_Click',['../class_reversi_form_1_1_setting_form.html#a1f030516cd37c000ba931af26be38903',1,'ReversiForm::SettingForm']]],
-  ['buttonsave_5fclick',['buttonSave_Click',['../class_reversi_form_1_1_setting_form.html#aba7b2ad370dba451133448e702cf0944',1,'ReversiForm::SettingForm']]]
+  ['button1_5fclick',['button1_Click',['../class_reversi4color_form_1_1_reversi.html#a6c7543d2823cf116c55bba3b970e4931',1,'Reversi4colorForm::Reversi']]],
+  ['button2_5fclick',['button2_Click',['../class_reversi4color_form_1_1_reversi.html#a99a5abaa127633df40da37167d579541',1,'Reversi4colorForm::Reversi']]],
+  ['buttoncancel_5fclick',['buttonCancel_Click',['../class_reversi4color_form_1_1_setting_form.html#a7e7098f2ad774fc34694fd778318a014',1,'Reversi4colorForm::SettingForm']]],
+  ['buttonsave_5fclick',['buttonSave_Click',['../class_reversi4color_form_1_1_setting_form.html#ab9d726aa75246b7ad2dbc34c30aaa549',1,'Reversi4colorForm::SettingForm']]]
 ];

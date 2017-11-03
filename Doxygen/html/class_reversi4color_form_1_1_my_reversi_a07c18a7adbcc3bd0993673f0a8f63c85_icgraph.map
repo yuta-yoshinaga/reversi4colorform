@@ -1,0 +1,11 @@
+<map id="Reversi4colorForm.MyReversi.AnalysisReversiBlue" name="Reversi4colorForm.MyReversi.AnalysisReversiBlue">
+<area shape="rect" id="node2" href="$class_reversi4color_form_1_1_my_reversi.html#ade9840e10e80b3e908a406efe9ee1372" title="解析を行う " alt="" coords="251,100,448,141"/>
+<area shape="rect" id="node3" href="$class_reversi4color_form_1_1_reversi_play.html#a32c01f1f57a7413cd5173637800f74b7" title="リセット処理 " alt="" coords="941,49,1116,91"/>
+<area shape="rect" id="node7" href="$class_reversi4color_form_1_1_reversi_play.html#a88c4cd228512f02a940fbe147c9d75c3" title="リバーシプレイ " alt="" coords="941,136,1116,177"/>
+<area shape="rect" id="node9" href="$class_reversi4color_form_1_1_reversi_play.html#a0fdeec03a631927d44ed2602808b8619" title="リバーシプレイコンピューター " alt="" coords="496,159,671,200"/>
+<area shape="rect" id="node4" href="$class_reversi4color_form_1_1_reversi.html#a6c7543d2823cf116c55bba3b970e4931" title="リセットクリック " alt="" coords="1164,5,1387,47"/>
+<area shape="rect" id="node6" href="$class_reversi4color_form_1_1_reversi.html#a99a5abaa127633df40da37167d579541" title="セッティングクリック " alt="" coords="1164,71,1387,112"/>
+<area shape="rect" id="node5" href="$class_reversi4color_form_1_1_reversi.html#a9eb7787e255c6aab7c75d6f0730e579e" title="デザイナー サポートに必要なメソッドです。このメソッドの内容を コード エディターで変更しないでください..." alt="" coords="1435,71,1613,112"/>
+<area shape="rect" id="node8" href="$class_reversi4color_form_1_1_reversi.html#af0467d1e6e97eab2d7f6f12384129135" title="マスクリック " alt="" coords="1166,136,1385,177"/>
+<area shape="rect" id="node10" href="$class_reversi4color_form_1_1_reversi_play.html#a92b619d3fb9e1fbbb36b6b60f6dee422" title="リバーシプレイサブ " alt="" coords="719,159,893,200"/>
+</map>

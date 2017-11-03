@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['torgb',['ToRgb',['../class_reversi_form_1_1_hsl_color.html#aa7036039dd3abc7a1216be97656467df',1,'ReversiForm::HslColor']]]
+  ['torgb',['ToRgb',['../class_reversi4color_form_1_1_hsl_color.html#adc8d6bd6fd29eff44ccc1f2d1890fd72',1,'Reversi4colorForm::HslColor']]]
 ];

@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['m_5fappsettings',['m_AppSettings',['../class_reversi_form_1_1_reversi.html#ae249a833eae1b8b11e3951d3b27fcba0',1,'ReversiForm::Reversi']]],
-  ['m_5freversiplay',['m_ReversiPlay',['../class_reversi_form_1_1_reversi.html#a95773c9b8c364a754ca27a4ce8a9bb16',1,'ReversiForm::Reversi']]],
-  ['main',['Main',['../class_reversi_form_1_1_program.html#a0d307c8bc3af65198f8bc1cef61e050f',1,'ReversiForm::Program']]],
-  ['makemasusts',['makeMasuSts',['../class_reversi_form_1_1_my_reversi.html#a379ac04ab0e8e9fc819ef3ceeba63e58',1,'ReversiForm::MyReversi']]],
-  ['myreversi',['MyReversi',['../class_reversi_form_1_1_my_reversi.html',1,'ReversiForm.MyReversi'],['../class_reversi_form_1_1_my_reversi.html#ab8c7a345a2e1d0978afd640d052f3827',1,'ReversiForm.MyReversi.MyReversi()']]],
+  ['m_5fappsettings',['m_AppSettings',['../class_reversi4color_form_1_1_reversi.html#acf0a86323b8a7494bc65dcb9945e19c1',1,'Reversi4colorForm::Reversi']]],
+  ['m_5freversiplay',['m_ReversiPlay',['../class_reversi4color_form_1_1_reversi.html#ae82e78a9e55c65e5909715b5eb1ec1e1',1,'Reversi4colorForm::Reversi']]],
+  ['main',['Main',['../class_reversi4color_form_1_1_program.html#a2edae1f309199d01d6561ca9f1b09454',1,'Reversi4colorForm::Program']]],
+  ['makemasusts',['makeMasuSts',['../class_reversi4color_form_1_1_my_reversi.html#afdfd5f0fc3a4ed4e24bcf67ead0bb980',1,'Reversi4colorForm::MyReversi']]],
+  ['myreversi',['MyReversi',['../class_reversi4color_form_1_1_my_reversi.html',1,'Reversi4colorForm.MyReversi'],['../class_reversi4color_form_1_1_my_reversi.html#af58387f6a43abefc531e9098cdb5e08d',1,'Reversi4colorForm.MyReversi.MyReversi()']]],
   ['myreversi_2ecs',['MyReversi.cs',['../_my_reversi_8cs.html',1,'']]]
 ];

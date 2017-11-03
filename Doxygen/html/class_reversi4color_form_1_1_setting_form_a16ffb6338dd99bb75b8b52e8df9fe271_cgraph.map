@@ -1,0 +1,9 @@
+<map id="Reversi4colorForm.SettingForm.InitializeComponent" name="Reversi4colorForm.SettingForm.InitializeComponent">
+<area shape="rect" id="node2" href="$class_reversi4color_form_1_1_setting_form.html#a23d56ca250e5a1e9df3895e24ed86a76" title="プレイヤー1の色クリック " alt="" coords="228,5,456,47"/>
+<area shape="rect" id="node3" href="$class_reversi4color_form_1_1_setting_form.html#ab9d726aa75246b7ad2dbc34c30aaa549" title="保存ボタンクリック " alt="" coords="255,71,429,112"/>
+<area shape="rect" id="node4" href="$class_reversi4color_form_1_1_setting_form.html#a7e7098f2ad774fc34694fd778318a014" title="プレイヤー2の色クリック " alt="" coords="255,136,429,177"/>
+<area shape="rect" id="node5" href="$class_reversi4color_form_1_1_setting_form.html#ab63992b26a7b6709437689625b8a1143" title="プレイヤー4の色クリック " alt="" coords="228,201,456,243"/>
+<area shape="rect" id="node8" href="$class_reversi4color_form_1_1_setting_form.html#aa2158dc2c149e15b72ce6b6a7a8e3809" title="プレイヤー3の色クリック " alt="" coords="228,267,456,308"/>
+<area shape="rect" id="node6" href="$class_reversi4color_form_1_1_reversi_setting.html#abbcc5e30dfee6da2c6e46929fd64dd1f" title="リセット " alt="" coords="504,169,679,211"/>
+<area shape="rect" id="node7" href="$class_reversi4color_form_1_1_setting_form.html#a33a42eed1cef78b8906da8ff65874ecd" title="フォームに設定を反映 " alt="" coords="504,235,679,276"/>
+</map>

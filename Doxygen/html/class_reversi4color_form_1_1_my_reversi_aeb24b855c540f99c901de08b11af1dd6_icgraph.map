@@ -1,0 +1,8 @@
+<map id="Reversi4colorForm.MyReversi.reset" name="Reversi4colorForm.MyReversi.reset">
+<area shape="rect" id="node2" href="$class_reversi4color_form_1_1_my_reversi.html#af58387f6a43abefc531e9098cdb5e08d" title="コンストラクタ " alt="" coords="289,5,486,47"/>
+<area shape="rect" id="node3" href="$class_reversi4color_form_1_1_reversi_play.html#a32c01f1f57a7413cd5173637800f74b7" title="リセット処理 " alt="" coords="543,93,717,135"/>
+<area shape="rect" id="node7" href="$class_reversi4color_form_1_1_my_reversi.html#ae612bc1a7a5ccbd972ce130de910e8e6" title="マスの数変更 " alt="" coords="280,123,495,164"/>
+<area shape="rect" id="node4" href="$class_reversi4color_form_1_1_reversi.html#a6c7543d2823cf116c55bba3b970e4931" title="リセットクリック " alt="" coords="765,60,988,101"/>
+<area shape="rect" id="node6" href="$class_reversi4color_form_1_1_reversi.html#a99a5abaa127633df40da37167d579541" title="セッティングクリック " alt="" coords="765,125,988,167"/>
+<area shape="rect" id="node5" href="$class_reversi4color_form_1_1_reversi.html#a9eb7787e255c6aab7c75d6f0730e579e" title="デザイナー サポートに必要なメソッドです。このメソッドの内容を コード エディターで変更しないでください..." alt="" coords="1036,93,1215,135"/>
+</map>

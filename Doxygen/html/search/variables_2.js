@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['components',['components',['../class_reversi_form_1_1_reversi.html#a2edc9ab9401997c20553b26aadef1ea0',1,'ReversiForm.Reversi.components()'],['../class_reversi_form_1_1_setting_form.html#af7d6ca70cbe9baa786a42f9e3139c942',1,'ReversiForm.SettingForm.components()']]]
+  ['components',['components',['../class_reversi4color_form_1_1_reversi.html#aaf7b7fe6d6a976a0e1465cf6a60e7f7d',1,'Reversi4colorForm.Reversi.components()'],['../class_reversi4color_form_1_1_setting_form.html#aff2698ca8c13967f78ffa2db8be83d50',1,'Reversi4colorForm.SettingForm.components()']]]
 ];

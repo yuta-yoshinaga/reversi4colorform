@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['loadsettingxml',['LoadSettingXml',['../class_reversi_form_1_1_reversi.html#afbe64672e4a4c9e6f6404a3bbf2b5e1d',1,'ReversiForm::Reversi']]]
+  ['loadsettingxml',['LoadSettingXml',['../class_reversi4color_form_1_1_reversi.html#a944e9618d0eac2a6928d8a8ec835d384',1,'Reversi4colorForm::Reversi']]]
 ];

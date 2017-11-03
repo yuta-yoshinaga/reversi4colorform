@@ -1,0 +1,5 @@
+<map id="Reversi4colorForm.Reversi.DrawSingle" name="Reversi4colorForm.Reversi.DrawSingle">
+<area shape="rect" id="node2" href="$class_reversi4color_form_1_1_reversi.html#a82fb011304d47866a85a9092fe4be6b7" title="1マス描画 " alt="" coords="232,39,411,80"/>
+<area shape="rect" id="node3" href="$class_reversi4color_form_1_1_hsl_color.html#ae9adbbe822f39c29ef11839c80923718" title="指定したColorからHslColorを作成する " alt="" coords="459,5,645,47"/>
+<area shape="rect" id="node4" href="$class_reversi4color_form_1_1_hsl_color.html#adc8d6bd6fd29eff44ccc1f2d1890fd72" title="指定したHslColorからColorを作成する " alt="" coords="459,71,645,112"/>
+</map>

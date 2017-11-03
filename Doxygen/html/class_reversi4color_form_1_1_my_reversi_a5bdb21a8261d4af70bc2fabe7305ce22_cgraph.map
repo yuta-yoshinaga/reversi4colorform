@@ -1,0 +1,5 @@
+<map id="Reversi4colorForm.MyReversi.getGameEndSts" name="Reversi4colorForm.MyReversi.getGameEndSts">
+<area shape="rect" id="node2" href="$class_reversi4color_form_1_1_my_reversi.html#a5c18ae70cd8a10fee96f44e3a0e8621b" title="指定色が現在置ける場所があるかチェック " alt="" coords="268,5,483,47"/>
+<area shape="rect" id="node3" href="$class_reversi4color_form_1_1_my_reversi.html#ac17f7f56dd24fa06ac8d394290feafef" title="指定座標に指定色を置けるかチェック " alt="" coords="531,5,745,47"/>
+<area shape="rect" id="node4" href="$class_reversi4color_form_1_1_my_reversi.html#a02c145ac89302f2360cdb0c0391a38ce" title="パラメーター範囲チェック " alt="" coords="793,13,1052,39"/>
+</map>

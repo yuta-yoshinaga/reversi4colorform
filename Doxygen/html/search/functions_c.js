@@ -1,16 +1,16 @@
 var searchData=
 [
-  ['reflectsettingform',['reflectSettingForm',['../class_reversi_form_1_1_setting_form.html#a7ede223d806bde4aeb790ade207ad677',1,'ReversiForm::SettingForm']]],
-  ['reset',['reset',['../class_reversi_form_1_1_my_reversi.html#aa8d8e839466c63462954080353cd4a9e',1,'ReversiForm.MyReversi.reset()'],['../class_reversi_form_1_1_reversi_anz.html#a2428d6f4fd60b95d28876b1f0f8ce151',1,'ReversiForm.ReversiAnz.reset()'],['../class_reversi_form_1_1_reversi_history.html#aa86ef20775db0009ddfbed5f813fe2d8',1,'ReversiForm.ReversiHistory.reset()'],['../class_reversi_form_1_1_reversi_play.html#a03997d634aa21a84e660e7f98aa27064',1,'ReversiForm.ReversiPlay.reset()'],['../class_reversi_form_1_1_reversi_setting.html#a2334691b0fa7c13674742c97a50a2e04',1,'ReversiForm.ReversiSetting.reset()']]],
-  ['reversi_5fresize',['Reversi_Resize',['../class_reversi_form_1_1_reversi.html#ac4868f12e6f15387f8f39f5f1934e610',1,'ReversiForm::Reversi']]],
-  ['reversianz',['ReversiAnz',['../class_reversi_form_1_1_reversi_anz.html#ac5867f7647c016b8d674e450a23b8c4a',1,'ReversiForm::ReversiAnz']]],
-  ['reversihistory',['ReversiHistory',['../class_reversi_form_1_1_reversi_history.html#aef9c390a68d81077b70bc6181587106b',1,'ReversiForm::ReversiHistory']]],
-  ['reversiplay',['ReversiPlay',['../class_reversi_form_1_1_reversi_play.html#aeb78112f8fb7fd2c75b8e0f088939867',1,'ReversiForm.ReversiPlay.ReversiPlay()'],['../class_reversi_form_1_1_reversi_play.html#a7f3822227e59fac0f998927a6566006e',1,'ReversiForm.ReversiPlay.reversiPlay(int y, int x)']]],
-  ['reversiplaycpu',['reversiPlayCpu',['../class_reversi_form_1_1_reversi_play.html#abec0ea86adfc0d2f960af71235eea016',1,'ReversiForm::ReversiPlay']]],
-  ['reversiplayend',['reversiPlayEnd',['../class_reversi_form_1_1_reversi_play.html#abb6d68c910c7d14ff4eaa8db745f0449',1,'ReversiForm::ReversiPlay']]],
-  ['reversiplaypass',['reversiPlayPass',['../class_reversi_form_1_1_reversi_play.html#adcbe040514044b7cc8498c0764638356',1,'ReversiForm::ReversiPlay']]],
-  ['reversiplaysub',['reversiPlaySub',['../class_reversi_form_1_1_reversi_play.html#a4fe42268a8d957c555db025f8b35d34e',1,'ReversiForm::ReversiPlay']]],
-  ['reversipoint',['ReversiPoint',['../class_reversi_form_1_1_reversi_point.html#a19bc338ec65d6b967f741c1c73ad5b16',1,'ReversiForm::ReversiPoint']]],
-  ['reversisetting',['ReversiSetting',['../class_reversi_form_1_1_reversi_setting.html#a985e02a2cbf355f46474efc51a5b3728',1,'ReversiForm::ReversiSetting']]],
-  ['revmasusts',['revMasuSts',['../class_reversi_form_1_1_my_reversi.html#a990acf71124e50643c0774c38f8f634b',1,'ReversiForm::MyReversi']]]
+  ['reflectsettingform',['reflectSettingForm',['../class_reversi4color_form_1_1_setting_form.html#a33a42eed1cef78b8906da8ff65874ecd',1,'Reversi4colorForm::SettingForm']]],
+  ['reset',['reset',['../class_reversi4color_form_1_1_my_reversi.html#aeb24b855c540f99c901de08b11af1dd6',1,'Reversi4colorForm.MyReversi.reset()'],['../class_reversi4color_form_1_1_reversi_anz.html#abdb9398ace86376d2a9f1f82cf7a2113',1,'Reversi4colorForm.ReversiAnz.reset()'],['../class_reversi4color_form_1_1_reversi_history.html#a32bee2391a72697e8f9eb68542b70e62',1,'Reversi4colorForm.ReversiHistory.reset()'],['../class_reversi4color_form_1_1_reversi_play.html#a32c01f1f57a7413cd5173637800f74b7',1,'Reversi4colorForm.ReversiPlay.reset()'],['../class_reversi4color_form_1_1_reversi_setting.html#abbcc5e30dfee6da2c6e46929fd64dd1f',1,'Reversi4colorForm.ReversiSetting.reset()']]],
+  ['reversi_5fresize',['Reversi_Resize',['../class_reversi4color_form_1_1_reversi.html#afacffb0f4d383892677acfd1b7304606',1,'Reversi4colorForm::Reversi']]],
+  ['reversianz',['ReversiAnz',['../class_reversi4color_form_1_1_reversi_anz.html#a7799887819857b6cba4d9f6048e4d43e',1,'Reversi4colorForm::ReversiAnz']]],
+  ['reversihistory',['ReversiHistory',['../class_reversi4color_form_1_1_reversi_history.html#a90caf6857e6bae3a51be28ac48cd7d70',1,'Reversi4colorForm::ReversiHistory']]],
+  ['reversiplay',['ReversiPlay',['../class_reversi4color_form_1_1_reversi_play.html#a9cf1450361c14688ace1dec2214e57c4',1,'Reversi4colorForm.ReversiPlay.ReversiPlay()'],['../class_reversi4color_form_1_1_reversi_play.html#a88c4cd228512f02a940fbe147c9d75c3',1,'Reversi4colorForm.ReversiPlay.reversiPlay(int y, int x)']]],
+  ['reversiplaycpu',['reversiPlayCpu',['../class_reversi4color_form_1_1_reversi_play.html#a0fdeec03a631927d44ed2602808b8619',1,'Reversi4colorForm::ReversiPlay']]],
+  ['reversiplayend',['reversiPlayEnd',['../class_reversi4color_form_1_1_reversi_play.html#a79053272ed2b985de79154b105c46c15',1,'Reversi4colorForm::ReversiPlay']]],
+  ['reversiplaypass',['reversiPlayPass',['../class_reversi4color_form_1_1_reversi_play.html#a47c3f277e5f480d6a5af1ca7b3a667f4',1,'Reversi4colorForm::ReversiPlay']]],
+  ['reversiplaysub',['reversiPlaySub',['../class_reversi4color_form_1_1_reversi_play.html#a92b619d3fb9e1fbbb36b6b60f6dee422',1,'Reversi4colorForm::ReversiPlay']]],
+  ['reversipoint',['ReversiPoint',['../class_reversi4color_form_1_1_reversi_point.html#a27174c0214cc9516f398f70a768d00fe',1,'Reversi4colorForm::ReversiPoint']]],
+  ['reversisetting',['ReversiSetting',['../class_reversi4color_form_1_1_reversi_setting.html#a88a0c05a8cc876cc6c8ab87e9514f40b',1,'Reversi4colorForm::ReversiSetting']]],
+  ['revmasusts',['revMasuSts',['../class_reversi4color_form_1_1_my_reversi.html#a94536b8feaa37ca51b3d0612befae12f',1,'Reversi4colorForm::MyReversi']]]
 ];

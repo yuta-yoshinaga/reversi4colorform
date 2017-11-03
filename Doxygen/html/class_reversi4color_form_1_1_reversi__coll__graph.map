@@ -1,0 +1,8 @@
+<map id="Reversi4colorForm.Reversi" name="Reversi4colorForm.Reversi">
+<area shape="rect" id="node3" href="$class_reversi4color_form_1_1_reversi_setting.html" title="アプリ設定クラス " alt="" coords="23,843,197,1272"/>
+<area shape="rect" id="node4" href="$class_reversi4color_form_1_1_reversi_play.html" title="リバーシプレイクラス " alt="" coords="232,1437,433,2101"/>
+<area shape="rect" id="node5" href="$class_reversi4color_form_1_1_reversi_point.html" title="リバーシポイント " alt="" coords="228,5,403,156"/>
+<area shape="rect" id="node6" href="$class_reversi4color_form_1_1_my_reversi.html" title="リバーシクラス " alt="" coords="276,740,469,1375"/>
+<area shape="rect" id="node8" href="$class_reversi4color_form_1_1_reversi_history.html" title="リバーシ履歴クラス " alt="" coords="437,351,612,501"/>
+<area shape="rect" id="node7" href="$class_reversi4color_form_1_1_reversi_anz.html" title="リバーシ解析クラス " alt="" coords="636,219,835,633"/>
+</map>
