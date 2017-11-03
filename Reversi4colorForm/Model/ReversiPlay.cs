@@ -44,6 +44,8 @@ namespace Reversi4colorForm
 		private ReversiPoint[] _mEdge;							//!< CPU用角マスワーク
 		private int _mPassEnaB = 0;								//!< 黒のパス有効フラグ
 		private int _mPassEnaW = 0;								//!< 白のパス有効フラグ
+		private int _mPassEnaL = 0;								//!< 青のパス有効フラグ
+		private int _mPassEnaR = 0;								//!< 赤のパス有効フラグ
 		private int _mGameEndSts = 0;							//!< ゲーム終了ステータス
 		private int _mPlayLock = 0;								//!< プレイロック
 		private ViewMsgDlg _viewMsgDlg = null;					//!< メッセージコールバック
@@ -88,6 +90,16 @@ namespace Reversi4colorForm
 		{
 			get { return _mPassEnaW; }
 			set { _mPassEnaW = value; }
+		}
+		public int mPassEnaL
+		{
+			get { return _mPassEnaL; }
+			set { _mPassEnaL = value; }
+		}
+		public int mPassEnaR
+		{
+			get { return _mPassEnaR; }
+			set { _mPassEnaR = value; }
 		}
 		public int mGameEndSts
 		{
@@ -175,7 +187,7 @@ namespace Reversi4colorForm
 			this.mPlayLock = 1;
 			if (this.mReversi.getColorEna(this.mCurColor) == 0) {
 				if (this.mReversi.setMasuSts(this.mCurColor, y, x) == 0) {
-					if (this.mSetting.mType == ReversiConst.DEF_TYPE_HARD) this.mReversi.AnalysisReversi(this.mPassEnaB, this.mPassEnaW);
+					if (this.mSetting.mType == ReversiConst.DEF_TYPE_HARD) this.mReversi.AnalysisReversi(this.mPassEnaB, this.mPassEnaW, this.mPassEnaL, this.mPassEnaR);
 					if (this.mSetting.mAssist == ReversiConst.DEF_ASSIST_ON) {
 						// *** メッセージ送信 *** //
 						this.execMessage(ReversiConst.LC_MSG_ERASE_INFO_ALL, null);
@@ -183,19 +195,21 @@ namespace Reversi4colorForm
 					this.sendDrawMsg(y, x);												// 描画
 					this.drawUpdate(ReversiConst.DEF_ASSIST_OFF);						// その他コマ描画
 					if (this.mReversi.getGameEndSts() == 0) {
-						if (tmpCol == ReversiConst.REVERSI_STS_BLACK) tmpCol = ReversiConst.REVERSI_STS_WHITE;
-						else tmpCol = ReversiConst.REVERSI_STS_BLACK;
-						if (this.mReversi.getColorEna(tmpCol) == 0) {
-							if (this.mSetting.mMode == ReversiConst.DEF_MODE_ONE) {		// CPU対戦
-								cpuEna = 1;
-							} else {													// 二人対戦
-								this.mCurColor = tmpCol;
-								this.drawUpdate(this.mSetting.mAssist);					// 次のプレイヤーコマ描画
+						for(;;){
+							tmpCol = this.getNextCol(tmpCol);
+							if(this.mReversi.getColorEna(tmpCol) == 0){
+								if(this.mSetting.mMode == ReversiConst.DEF_MODE_ONE){	// CPU対戦
+									if(tmpCol != this.mCurColor) cpuEna = 1;
+								}else{													// 四人対戦
+									this.mCurColor = tmpCol;
+									this.drawUpdate(this.mSetting.mAssist);				// 次のプレイヤーコマ描画
+								}
+								break;
+							}else{
+								// *** パスメッセージ *** //
+								if(this.mReversi.getBetCnt(tmpCol) != 0) this.reversiPlayPass(tmpCol);
+								pass = 1;
 							}
-						} else {
-							// *** パスメッセージ *** //
-							this.reversiPlayPass(tmpCol);
-							pass = 1;
 						}
 					} else {
 						// *** ゲーム終了メッセージ *** //
@@ -208,26 +222,28 @@ namespace Reversi4colorForm
 				}
 			} else {
 				if (this.mReversi.getGameEndSts() == 0) {
-					if (tmpCol == ReversiConst.REVERSI_STS_BLACK) tmpCol = ReversiConst.REVERSI_STS_WHITE;
-					else tmpCol = ReversiConst.REVERSI_STS_BLACK;
-					if (this.mReversi.getColorEna(tmpCol) == 0) {
-						if (this.mSetting.mMode == ReversiConst.DEF_MODE_ONE) {			// CPU対戦
-							update = 1;
-							cpuEna = 1;
-						} else {														// 二人対戦
-							this.mCurColor = tmpCol;
+					for(;;){
+						tmpCol = this.getNextCol(tmpCol);
+						if(this.mReversi.getColorEna(tmpCol) == 0){
+							if(this.mSetting.mMode == ReversiConst.DEF_MODE_ONE){		// CPU対戦
+								if(tmpCol != this.mCurColor) cpuEna = 1;
+							}else{														// 四人対戦
+								this.mCurColor = tmpCol;
+								this.drawUpdate(this.mSetting.mAssist);					// 次のプレイヤーコマ描画
+							}
+							break;
+						}else{
+							// *** パスメッセージ *** //
+							if(this.mReversi.getBetCnt(tmpCol) != 0) this.reversiPlayPass(tmpCol);
+							pass = 1;
 						}
-					} else {
-						// *** パスメッセージ *** //
-						this.reversiPlayPass(tmpCol);
-						pass = 1;
 					}
 				} else {
 					// *** ゲーム終了メッセージ *** //
 					this.reversiPlayEnd();
 				}
 			}
-			if (pass == 1) {
+			if (pass == 1 && cpuEna == 0) {
 				if (this.mSetting.mMode == ReversiConst.DEF_MODE_ONE) {					// CPU対戦
 					if (this.mSetting.mAssist == ReversiConst.DEF_ASSIST_ON) {
 						// *** メッセージ送信 *** //
@@ -266,10 +282,21 @@ namespace Reversi4colorForm
 				cpuEna = 0;
 				if (ret == 1) {
 					if (this.mReversi.getGameEndSts() == 0) {
-						if (this.mReversi.getColorEna(this.mCurColor) != 0) {
-							// *** パスメッセージ *** //
-							this.reversiPlayPass(this.mCurColor);
-							cpuEna = 1;
+						for(;;){
+							tmpCol = this.getNextCol(tmpCol);
+							if(this.mReversi.getColorEna(tmpCol) != 0){
+								// *** パスメッセージ *** //
+								if(this.mReversi.getBetCnt(tmpCol) != 0) this.reversiPlayPass(tmpCol);
+							}else{
+								if(tmpCol == this.mCurColor){
+									if(this.mSetting.mAssist == ReversiConst.DEF_ASSIST_ON){
+										this.execMessage(ReversiConst.LC_MSG_DRAW_INFO_ALL, null);
+									}
+								}else{
+									cpuEna = 1;
+								}
+								break;
+							}
 						}
 					} else {
 						// *** ゲーム終了メッセージ *** //
@@ -297,23 +324,40 @@ namespace Reversi4colorForm
 				System.Threading.Thread.Sleep(waitTime);
 				// *** ゲーム終了メッセージ *** //
 				string tmpMsg1, tmpMsg2, msgStr;
-				int blk, whi;
+				int blk, whi, blu, red, maxCol, playCol;
 				blk = this.mReversi.getBetCnt(ReversiConst.REVERSI_STS_BLACK);
 				whi = this.mReversi.getBetCnt(ReversiConst.REVERSI_STS_WHITE);
-				tmpMsg1 = "プレイヤー1 = " + blk.ToString() + " プレイヤー2 = " + whi.ToString();
+				blu = this.mReversi.getBetCnt(ReversiConst.REVERSI_STS_BLUE);
+				red = this.mReversi.getBetCnt(ReversiConst.REVERSI_STS_RED);
+				maxCol = blk;
+				if(maxCol < whi) maxCol = whi;
+				if(maxCol < blu) maxCol = blu;
+				if(maxCol < red) maxCol = red;
+				if(this.mCurColor == ReversiConst.REVERSI_STS_BLACK)			playCol = blk;
+				else if(this.mCurColor == ReversiConst.REVERSI_STS_WHITE)		playCol = whi;
+				else if(this.mCurColor == ReversiConst.REVERSI_STS_BLUE)		playCol = blu;
+				else															playCol = red;
+				tmpMsg1 = "プレイヤー1 = " + blk.ToString() + " プレイヤー2 = " + whi.ToString() + " プレイヤー3 = " + blu.ToString() + " プレイヤー4 = " + red.ToString();
 				if (this.mSetting.mMode == ReversiConst.DEF_MODE_ONE) {
-					if (whi == blk) tmpMsg2 = "引き分けです。";
-					else if (whi < blk) {
-						if (this.mCurColor == ReversiConst.REVERSI_STS_BLACK) tmpMsg2 = "あなたの勝ちです。";
-						else tmpMsg2 = "あなたの負けです。";
+					if (maxCol == blk && maxCol == whi && maxCol == blu && maxCol == red){
+						tmpMsg2 = "引き分けです。";
+					} else if (maxCol == playCol) {
+						tmpMsg2 = "あなたの勝ちです。";
 					} else {
-						if (this.mCurColor == ReversiConst.REVERSI_STS_WHITE) tmpMsg2 = "あなたの勝ちです。";
-						else tmpMsg2 = "あなたの負けです。";
+						tmpMsg2 = "あなたの負けです。";
 					}
 				} else {
-					if (whi == blk) tmpMsg2 = "引き分けです。";
-					else if (whi < blk) tmpMsg2 = "プレイヤー1の勝ちです。";
-					else tmpMsg2 = "プレイヤー2の勝ちです。";
+					if (maxCol == blk && maxCol == whi && maxCol == blu && maxCol == red){
+						tmpMsg2 = "引き分けです。";
+					} else if(maxCol == blk) {
+						tmpMsg2 = "プレイヤー1の勝ちです。";
+					} else if(maxCol == whi) {
+						tmpMsg2 = "プレイヤー2の勝ちです。";
+					} else if(maxCol == blu) {
+						tmpMsg2 = "プレイヤー3の勝ちです。";
+					} else {
+						tmpMsg2 = "プレイヤー4の勝ちです。";
+					}
 				}
 				msgStr = tmpMsg1 + tmpMsg2;
 				this.ViewMsgDlgLocal("ゲーム終了", msgStr);
@@ -339,13 +383,15 @@ namespace Reversi4colorForm
 		public void reversiPlayPass(int color)
 		{
 			// *** パスメッセージ *** //
-			if (this.mSetting.mMode == ReversiConst.DEF_MODE_ONE) {
-				if (color == this.mCurColor) this.ViewMsgDlgLocal("", "あなたはパスです。");
-				else this.ViewMsgDlgLocal("", "CPUはパスです。");
-			} else {
-				if (color == ReversiConst.REVERSI_STS_BLACK) this.ViewMsgDlgLocal("", "プレイヤー1はパスです。");
-				else this.ViewMsgDlgLocal("", "プレイヤー2はパスです。");
-			}
+//			if (this.mSetting.mMode == ReversiConst.DEF_MODE_ONE) {
+//				if (color == this.mCurColor) this.ViewMsgDlgLocal("", "あなたはパスです。");
+//				else this.ViewMsgDlgLocal("", "CPUはパスです。");
+//			} else {
+//				if (color == ReversiConst.REVERSI_STS_BLACK)		this.ViewMsgDlgLocal("", "プレイヤー1はパスです。");
+//				else if (color == ReversiConst.REVERSI_STS_WHITE)	this.ViewMsgDlgLocal("", "プレイヤー2はパスです。");
+//				else if (color == ReversiConst.REVERSI_STS_BLUE)	this.ViewMsgDlgLocal("", "プレイヤー3はパスです。");
+//				else												this.ViewMsgDlgLocal("", "プレイヤー4はパスです。");
+//			}
 		}
 
 		////////////////////////////////////////////////////////////////////////////////
@@ -363,6 +409,7 @@ namespace Reversi4colorForm
 			int update = 0;
 			int setY;
 			int setX;
+			int [] othColor = new int [3];
 
 			for (; ;) {
 				if (cpuEna == 1) {
@@ -374,7 +421,7 @@ namespace Reversi4colorForm
 						setY = pInfo.y;
 						setX = pInfo.x;
 						if (this.mSetting.mType != ReversiConst.DEF_TYPE_EASY) {	// 強いコンピューター
-							int cpuflg0, cpuflg1, cpuflg2, cpuflg3, mem, mem2, mem3, mem4, rcnt1, rcnt2, kadocnt, loop, pcnt, passCnt, othColor, othBet, ownBet, endZone;
+							int cpuflg0, cpuflg1, cpuflg2, cpuflg3, mem, mem2, mem3, mem4, rcnt1, rcnt2, kadocnt, loop, pcnt, passCnt, othBet, ownBet, endZone;
 							cpuflg0 = 0;
 							cpuflg1 = 0;
 							cpuflg2 = 0;
@@ -389,9 +436,27 @@ namespace Reversi4colorForm
 							loop = this.mSetting.mMasuCnt * this.mSetting.mMasuCnt;
 							pcnt = 0;
 							passCnt = 0;
-							if (color == ReversiConst.REVERSI_STS_BLACK) othColor = ReversiConst.REVERSI_STS_WHITE;
-							else othColor = ReversiConst.REVERSI_STS_BLACK;
-							othBet = this.mReversi.getBetCnt(othColor);				// 対戦相手のコマ数
+							if(color == ReversiConst.REVERSI_STS_BLACK){
+								othColor[0] = ReversiConst.REVERSI_STS_WHITE;
+								othColor[1] = ReversiConst.REVERSI_STS_BLUE;
+								othColor[2] = ReversiConst.REVERSI_STS_RED;
+							}else if(color == ReversiConst.REVERSI_STS_WHITE){
+								othColor[0] = ReversiConst.REVERSI_STS_BLACK;
+								othColor[1] = ReversiConst.REVERSI_STS_BLUE;
+								othColor[2] = ReversiConst.REVERSI_STS_RED;
+							}else if(color == ReversiConst.REVERSI_STS_BLUE){
+								othColor[0] = ReversiConst.REVERSI_STS_BLACK;
+								othColor[1] = ReversiConst.REVERSI_STS_WHITE;
+								othColor[2] = ReversiConst.REVERSI_STS_RED;
+							}else{
+								othColor[0] = ReversiConst.REVERSI_STS_BLACK;
+								othColor[1] = ReversiConst.REVERSI_STS_WHITE;
+								othColor[2] = ReversiConst.REVERSI_STS_BLUE;
+							}
+							othBet = 0;
+							for(int i=0;i<3;i++){
+								othBet += this.mReversi.getBetCnt(othColor[i]);		// 対戦相手のコマ数
+							}
 							ownBet = this.mReversi.getBetCnt(color);				// 自分のコマ数
 							endZone = 0;
 							if ((loop - (othBet + ownBet)) <= 16) endZone = 1;		// ゲーム終盤フラグON
@@ -588,7 +653,7 @@ namespace Reversi4colorForm
 						}
 
 						if (this.mReversi.setMasuSts(color, setY, setX) == 0) {
-							if (this.mSetting.mType == ReversiConst.DEF_TYPE_HARD) this.mReversi.AnalysisReversi(this.mPassEnaB, this.mPassEnaW);
+							if (this.mSetting.mType == ReversiConst.DEF_TYPE_HARD) this.mReversi.AnalysisReversi(this.mPassEnaB, this.mPassEnaW, this.mPassEnaL, this.mPassEnaR);
 							this.sendDrawMsg(setY, setX);							// 描画
 							update = 1;
 						}
@@ -698,11 +763,23 @@ namespace Reversi4colorForm
 			this.mReversi.reset();
 			if (this.mSetting.mMode == ReversiConst.DEF_MODE_ONE) {
 				if (this.mCurColor == ReversiConst.REVERSI_STS_WHITE) {
-					var pCnt = this.mReversi.getPointCnt(ReversiConst.REVERSI_STS_BLACK);
-					ReversiPoint pInfo = this.mReversi.getPoint(ReversiConst.REVERSI_STS_BLACK, r.Next(pCnt));
-					if (pInfo != null) {
-						this.mReversi.setMasuSts(ReversiConst.REVERSI_STS_BLACK, pInfo.y, pInfo.x);
-						if (this.mSetting.mType == ReversiConst.DEF_TYPE_HARD) this.mReversi.AnalysisReversi(this.mPassEnaB, this.mPassEnaW);
+					int tmpCol,pCnt,nxCol;
+					ReversiPoint pInfo;
+					tmpCol = ReversiConst.REVERSI_STS_BLACK;
+					for(;;){
+						pCnt = this.mReversi.getPointCnt(tmpCol);
+						if(pCnt != 0)	pInfo = this.mReversi.getPoint(tmpCol,r.Next(pCnt));
+						else			pInfo = null;
+						if(pInfo != null){
+							mReversi.setMasuSts(tmpCol,pInfo.y,pInfo.x);
+							if(this.mSetting.mType == ReversiConst.DEF_TYPE_HARD) this.mReversi.AnalysisReversi(this.mPassEnaB,this.mPassEnaW,this.mPassEnaL,this.mPassEnaR);
+						}
+						nxCol = this.getNextCol(tmpCol);
+						if(nxCol == this.mCurColor){
+							break;
+						}else{
+							tmpCol = nxCol;
+						}
 					}
 				}
 			}
@@ -718,6 +795,26 @@ namespace Reversi4colorForm
 		}
 
 		////////////////////////////////////////////////////////////////////////////////
+		///	@brief			次の色取得
+		///	@fn				public int getNextCol(int color)
+		///	@param[in]		int color	現在の色
+		///	@return			次の色
+		///	@author			Yuta Yoshinaga
+		///	@date			2017.10.20
+		///
+		////////////////////////////////////////////////////////////////////////////////
+		public int getNextCol(int color){
+			int ret = color;
+
+			if(color == ReversiConst.REVERSI_STS_BLACK)		ret = ReversiConst.REVERSI_STS_WHITE;
+			else if(color == ReversiConst.REVERSI_STS_WHITE)	ret = ReversiConst.REVERSI_STS_BLUE;
+			else if(color == ReversiConst.REVERSI_STS_BLUE)	ret = ReversiConst.REVERSI_STS_RED;
+			else										ret = ReversiConst.REVERSI_STS_BLACK;
+
+			return ret;
+		}
+
+		////////////////////////////////////////////////////////////////////////////////
 		///	@brief			ゲーム終了アニメーション
 		///	@fn				int gameEndAnimExec()
 		///	@return			ウェイト時間
@@ -727,12 +824,14 @@ namespace Reversi4colorForm
 		////////////////////////////////////////////////////////////////////////////////
 		public int gameEndAnimExec()
 		{
-			int bCnt, wCnt;
+			int bCnt,wCnt,lCnt,rCnt,bCnt2,wCnt2,lCnt2,rCnt2,bEnd,wEnd,lEnd,rEnd;
 			int ret = 0;
 
 			if (this.mSetting.mEndAnim == ReversiConst.DEF_END_ANIM_ON) {
 				bCnt = this.mReversi.getBetCnt(ReversiConst.REVERSI_STS_BLACK);
 				wCnt = this.mReversi.getBetCnt(ReversiConst.REVERSI_STS_WHITE);
+				lCnt = this.mReversi.getBetCnt(ReversiConst.REVERSI_STS_BLUE);
+				rCnt = this.mReversi.getBetCnt(ReversiConst.REVERSI_STS_RED);
 
 				// *** 色、コマ数表示消去 *** //
 				// *** メッセージ送信 *** //
@@ -751,11 +850,14 @@ namespace Reversi4colorForm
 				this.execMessage(ReversiConst.LC_MSG_ERASE_ALL, null);
 
 				// *** マス描画 *** //
-				int bCnt2, wCnt2, bEnd, wEnd;
 				bCnt2 = 0;
 				wCnt2 = 0;
+				lCnt2 = 0;
+				rCnt2 = 0;
 				bEnd = 0;
 				wEnd = 0;
+				lEnd = 0;
+				rEnd = 0;
 				for (var i = 0; i < this.mSetting.mMasuCnt; i++) {
 					for (var j = 0; j < this.mSetting.mMasuCnt; j++) {
 						if (bCnt2 < bCnt) {
@@ -772,7 +874,25 @@ namespace Reversi4colorForm
 						} else {
 							wEnd = 1;
 						}
-						if (bEnd == 1 && wEnd == 1) {
+						if(bEnd == 1){
+							if(lCnt2 < lCnt){
+								lCnt2++;
+								this.mReversi.setMasuStsForcibly(ReversiConst.REVERSI_STS_BLUE,i,j);
+								this.sendDrawMsg(i,j);
+							}else{
+								lEnd = 1;
+							}
+						}
+						if(wEnd == 1){
+							if(rCnt2 < rCnt){
+								rCnt2++;
+								this.mReversi.setMasuStsForcibly(ReversiConst.REVERSI_STS_RED,(this.mSetting.mMasuCnt - 1) - i,(this.mSetting.mMasuCnt - 1) - j);
+								this.sendDrawMsg((this.mSetting.mMasuCnt - 1) - i,(this.mSetting.mMasuCnt - 1) - j);
+							}else{
+								rEnd = 1;
+							}
+						}
+						if(bEnd == 1 && wEnd == 1 && lEnd == 1 && rEnd == 1){
 							break;
 						}else{
 							System.Threading.Thread.Sleep(this.mSetting.mEndDrawInterVal);
@@ -898,17 +1018,24 @@ namespace Reversi4colorForm
 			} else if (what == ReversiConst.LC_MSG_CUR_COL) {
 				string tmpStr = "";
 				if (this.mSetting.mMode == ReversiConst.DEF_MODE_ONE) {
-					if (this.mCurColor == ReversiConst.REVERSI_STS_BLACK) tmpStr = "あなたはプレイヤー1です ";
-					else tmpStr = "あなたはプレイヤー2です ";
+					if (this.mCurColor == ReversiConst.REVERSI_STS_BLACK)		tmpStr = "あなたはプレイヤー1です ";
+					else if (this.mCurColor == ReversiConst.REVERSI_STS_WHITE)	tmpStr = "あなたはプレイヤー2です ";
+					else if (this.mCurColor == ReversiConst.REVERSI_STS_BLUE)	tmpStr = "あなたはプレイヤー3です ";
+					else														tmpStr = "あなたはプレイヤー4です ";
 				} else {
-					if (this.mCurColor == ReversiConst.REVERSI_STS_BLACK) tmpStr = "プレイヤー1の番です ";
-					else tmpStr = "プレイヤー2の番です ";
+					if (this.mCurColor == ReversiConst.REVERSI_STS_BLACK)		tmpStr = "プレイヤー1の番です ";
+					else if (this.mCurColor == ReversiConst.REVERSI_STS_WHITE)	tmpStr = "プレイヤー2の番です ";
+					else if (this.mCurColor == ReversiConst.REVERSI_STS_BLUE)	tmpStr = "プレイヤー3の番です ";
+					else														tmpStr = "プレイヤー4の番です ";
 				}
 				this.CurColMsgLocal(tmpStr);
 			} else if (what == ReversiConst.LC_MSG_CUR_COL_ERASE) {
 				this.CurColMsgLocal("");
 			} else if (what == ReversiConst.LC_MSG_CUR_STS) {
-				string tmpStr = "プレイヤー1 = " + this.mReversi.getBetCnt(ReversiConst.REVERSI_STS_BLACK) + " プレイヤー2 = " + this.mReversi.getBetCnt(ReversiConst.REVERSI_STS_WHITE);
+				string tmpStr =		" プレイヤー1 = " + this.mReversi.getBetCnt(ReversiConst.REVERSI_STS_BLACK) +
+									" プレイヤー2 = " + this.mReversi.getBetCnt(ReversiConst.REVERSI_STS_WHITE) +
+									" プレイヤー3 = " + this.mReversi.getBetCnt(ReversiConst.REVERSI_STS_BLUE) +
+									" プレイヤー4 = " + this.mReversi.getBetCnt(ReversiConst.REVERSI_STS_RED);
 				this.CurStsMsgLocal(tmpStr);
 			} else if (what == ReversiConst.LC_MSG_CUR_STS_ERASE) {
 				this.CurStsMsgLocal("");

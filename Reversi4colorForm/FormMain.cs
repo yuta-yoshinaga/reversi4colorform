@@ -363,6 +363,14 @@ namespace Reversi4colorForm
 				{
 					curBru2 = new SolidBrush(m_AppSettings.mPlayerColor2);
 				}
+				else if (sts == ReversiConst.REVERSI_STS_BLUE)
+				{
+					curBru2 = new SolidBrush(m_AppSettings.mPlayerColor3);
+				}
+				else if (sts == ReversiConst.REVERSI_STS_RED)
+				{
+					curBru2 = new SolidBrush(m_AppSettings.mPlayerColor4);
+				}
 
 				// 位置(x, y)にWidth x Heightの四角を描く
 				g.FillRectangle(curBru1, 0, 0, curPict.Width, curPict.Height);

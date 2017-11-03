@@ -6564,7 +6564,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Reversi";
-            this.Text = "Reversi";
+            this.Text = "Reversi4Color";
             this.ResizeEnd += new System.EventHandler(this.Reversi_ResizeEnd);
             this.Resize += new System.EventHandler(this.Reversi_Resize);
             this.tableLayoutPanel1.ResumeLayout(false);

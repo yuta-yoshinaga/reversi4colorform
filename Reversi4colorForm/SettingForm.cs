@@ -106,11 +106,29 @@ namespace Reversi4colorForm
 			{
 				radioButtonPlayer1.Checked = true;
 				radioButtonPlayer2.Checked = false;
+				radioButtonPlayer3.Checked = false;
+				radioButtonPlayer4.Checked = false;
+			}
+			else if(mSetting.mPlayer == ReversiConst.REVERSI_STS_WHITE)
+			{
+				radioButtonPlayer1.Checked = false;
+				radioButtonPlayer2.Checked = true;
+				radioButtonPlayer3.Checked = false;
+				radioButtonPlayer4.Checked = false;
+			}
+			else if(mSetting.mPlayer == ReversiConst.REVERSI_STS_BLUE)
+			{
+				radioButtonPlayer1.Checked = false;
+				radioButtonPlayer2.Checked = false;
+				radioButtonPlayer3.Checked = true;
+				radioButtonPlayer4.Checked = false;
 			}
 			else
 			{
 				radioButtonPlayer1.Checked = false;
-				radioButtonPlayer2.Checked = true;
+				radioButtonPlayer2.Checked = false;
+				radioButtonPlayer3.Checked = false;
+				radioButtonPlayer4.Checked = true;
 			}
 			// *** アシスト *** //
 			if(mSetting.mAssist == ReversiConst.DEF_ASSIST_OFF)
@@ -244,6 +262,8 @@ namespace Reversi4colorForm
 			}
 			pictureBoxPlayerColor1.BackColor = mSetting.mPlayerColor1;
 			pictureBoxPlayerColor2.BackColor = mSetting.mPlayerColor2;
+			pictureBoxPlayerColor3.BackColor = mSetting.mPlayerColor3;
+			pictureBoxPlayerColor4.BackColor = mSetting.mPlayerColor4;
 			pictureBoxBackGroundColor.BackColor = mSetting.mBackGroundColor;
 			pictureBoxBorderColor.BackColor = mSetting.mBorderColor;
 		}
@@ -267,7 +287,9 @@ namespace Reversi4colorForm
 			else											mSetting.mType = ReversiConst.DEF_TYPE_HARD;
 			// *** プレイヤーの色 *** //
 			if(radioButtonPlayer1.Checked == true)			mSetting.mPlayer = ReversiConst.REVERSI_STS_BLACK;
-			else											mSetting.mPlayer = ReversiConst.REVERSI_STS_WHITE;
+			else if(radioButtonPlayer2.Checked == true)		mSetting.mPlayer = ReversiConst.REVERSI_STS_WHITE;
+			else if(radioButtonPlayer3.Checked == true)		mSetting.mPlayer = ReversiConst.REVERSI_STS_BLUE;
+			else											mSetting.mPlayer = ReversiConst.REVERSI_STS_RED;
 			// *** アシスト *** //
 			if(radioButtonAssist1.Checked == true)			mSetting.mAssist = ReversiConst.DEF_ASSIST_OFF;
 			else											mSetting.mAssist = ReversiConst.DEF_ASSIST_ON;
@@ -321,6 +343,8 @@ namespace Reversi4colorForm
 			}
 			mSetting.mPlayerColor1		= pictureBoxPlayerColor1.BackColor;
 			mSetting.mPlayerColor2		= pictureBoxPlayerColor2.BackColor;
+			mSetting.mPlayerColor3		= pictureBoxPlayerColor3.BackColor;
+			mSetting.mPlayerColor4		= pictureBoxPlayerColor4.BackColor;
 			mSetting.mBackGroundColor	= pictureBoxBackGroundColor.BackColor;
 			mSetting.mBorderColor		= pictureBoxBorderColor.BackColor;
 		}
@@ -370,6 +394,54 @@ namespace Reversi4colorForm
 			{
 				// 選択された色の取得
 				pictureBoxPlayerColor2.BackColor = cd.Color;
+			}
+		}
+
+		////////////////////////////////////////////////////////////////////////////////
+		///	@brief			プレイヤー3の色クリック
+		///	@fn				void pictureBoxPlayerColor3_Click(object sender, EventArgs e)
+		///	@param[in]		object sender
+		///	@param[in]		EventArgs e
+		///	@return			ありません
+		///	@author			Yuta Yoshinaga
+		///	@date			2017.10.20
+		///
+		////////////////////////////////////////////////////////////////////////////////
+		private void pictureBoxPlayerColor3_Click(object sender, EventArgs e)
+		{
+			// ColorDialogクラスのインスタンスを作成
+			ColorDialog cd = new ColorDialog();
+			// はじめに選択されている色を設定
+			cd.Color = pictureBoxPlayerColor3.BackColor;
+			// ダイアログを表示する
+			if (cd.ShowDialog() == DialogResult.OK)
+			{
+				// 選択された色の取得
+				pictureBoxPlayerColor3.BackColor = cd.Color;
+			}
+		}
+
+		////////////////////////////////////////////////////////////////////////////////
+		///	@brief			プレイヤー4の色クリック
+		///	@fn				void pictureBoxPlayerColor4_Click(object sender, EventArgs e)
+		///	@param[in]		object sender
+		///	@param[in]		EventArgs e
+		///	@return			ありません
+		///	@author			Yuta Yoshinaga
+		///	@date			2017.10.20
+		///
+		////////////////////////////////////////////////////////////////////////////////
+		private void pictureBoxPlayerColor4_Click(object sender, EventArgs e)
+		{
+			// ColorDialogクラスのインスタンスを作成
+			ColorDialog cd = new ColorDialog();
+			// はじめに選択されている色を設定
+			cd.Color = pictureBoxPlayerColor4.BackColor;
+			// ダイアログを表示する
+			if (cd.ShowDialog() == DialogResult.OK)
+			{
+				// 選択された色の取得
+				pictureBoxPlayerColor4.BackColor = cd.Color;
 			}
 		}
 

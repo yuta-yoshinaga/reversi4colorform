@@ -39,6 +39,8 @@ namespace Reversi4colorForm
 
 		public const int DEF_COLOR_BLACK = 0;							//!< コマ色 黒
 		public const int DEF_COLOR_WHITE = 1;							//!< コマ色 白
+		public const int DEF_COLOR_BLUE = 2;							//!< コマ色 青
+		public const int DEF_COLOR_RED = 3;								//!< コマ色 赤
 
 		public const int DEF_ASSIST_OFF = 0;							//!< アシスト OFF
 		public const int DEF_ASSIST_ON = 1;								//!< アシスト ON
@@ -80,8 +82,10 @@ namespace Reversi4colorForm
 		public const int REVERSI_STS_NONE = 0;							//!< コマ無し
 		public const int REVERSI_STS_BLACK = 1;							//!< 黒
 		public const int REVERSI_STS_WHITE = 2;							//!< 白
-		public const int REVERSI_STS_MIN = 0;							//!< ステータス最小値
-		public const int REVERSI_STS_MAX = 2;							//!< ステータス最大値
+		public const int REVERSI_STS_BLUE = 3;							//!< 青
+		public const int REVERSI_STS_RED = 4;							//!< 赤
+		public const int REVERSI_STS_MIN = REVERSI_STS_NONE;			//!< ステータス最小値
+		public const int REVERSI_STS_MAX = REVERSI_STS_BLUE;			//!< ステータス最大値
 		public const int REVERSI_MASU_CNT = 8;							//!< 縦横マス数
 
 		public const int LC_MSG_DRAW = 0;								//!< マス描画

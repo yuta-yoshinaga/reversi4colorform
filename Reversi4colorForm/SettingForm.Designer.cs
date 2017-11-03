@@ -69,6 +69,12 @@
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonDefault = new System.Windows.Forms.Button();
+            this.labelPlayerColor4 = new System.Windows.Forms.Label();
+            this.pictureBoxPlayerColor4 = new System.Windows.Forms.PictureBox();
+            this.labelPlayerColor3 = new System.Windows.Forms.Label();
+            this.pictureBoxPlayerColor3 = new System.Windows.Forms.PictureBox();
+            this.radioButtonPlayer4 = new System.Windows.Forms.RadioButton();
+            this.radioButtonPlayer3 = new System.Windows.Forms.RadioButton();
             this.groupBoxMode.SuspendLayout();
             this.groupBoxType.SuspendLayout();
             this.groupBoxPlayer.SuspendLayout();
@@ -80,6 +86,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerColor2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBackGroundColor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBorderColor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerColor4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerColor3)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBoxMode
@@ -141,6 +149,7 @@
             // radioButtonType3
             // 
             this.radioButtonType3.AutoSize = true;
+            this.radioButtonType3.Enabled = false;
             this.radioButtonType3.Location = new System.Drawing.Point(113, 19);
             this.radioButtonType3.Name = "radioButtonType3";
             this.radioButtonType3.Size = new System.Drawing.Size(45, 16);
@@ -184,11 +193,13 @@
             // 
             // groupBoxPlayer
             // 
+            this.groupBoxPlayer.Controls.Add(this.radioButtonPlayer4);
+            this.groupBoxPlayer.Controls.Add(this.radioButtonPlayer3);
             this.groupBoxPlayer.Controls.Add(this.radioButtonPlayer2);
             this.groupBoxPlayer.Controls.Add(this.radioButtonPlayer1);
             this.groupBoxPlayer.Location = new System.Drawing.Point(332, 12);
             this.groupBoxPlayer.Name = "groupBoxPlayer";
-            this.groupBoxPlayer.Size = new System.Drawing.Size(173, 46);
+            this.groupBoxPlayer.Size = new System.Drawing.Size(328, 46);
             this.groupBoxPlayer.TabIndex = 3;
             this.groupBoxPlayer.TabStop = false;
             this.groupBoxPlayer.Text = "色";
@@ -401,6 +412,7 @@
             // radioButtonMasuCntMenu1
             // 
             this.radioButtonMasuCntMenu1.AutoSize = true;
+            this.radioButtonMasuCntMenu1.Enabled = false;
             this.radioButtonMasuCntMenu1.Location = new System.Drawing.Point(7, 19);
             this.radioButtonMasuCntMenu1.Name = "radioButtonMasuCntMenu1";
             this.radioButtonMasuCntMenu1.Size = new System.Drawing.Size(29, 16);
@@ -450,7 +462,7 @@
             // labelBackGroundColor
             // 
             this.labelBackGroundColor.AutoSize = true;
-            this.labelBackGroundColor.Location = new System.Drawing.Point(236, 187);
+            this.labelBackGroundColor.Location = new System.Drawing.Point(462, 187);
             this.labelBackGroundColor.Name = "labelBackGroundColor";
             this.labelBackGroundColor.Size = new System.Drawing.Size(69, 12);
             this.labelBackGroundColor.TabIndex = 12;
@@ -459,7 +471,7 @@
             // pictureBoxBackGroundColor
             // 
             this.pictureBoxBackGroundColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxBackGroundColor.Location = new System.Drawing.Point(243, 202);
+            this.pictureBoxBackGroundColor.Location = new System.Drawing.Point(469, 202);
             this.pictureBoxBackGroundColor.Name = "pictureBoxBackGroundColor";
             this.pictureBoxBackGroundColor.Size = new System.Drawing.Size(50, 50);
             this.pictureBoxBackGroundColor.TabIndex = 11;
@@ -469,7 +481,7 @@
             // labelBorderColor
             // 
             this.labelBorderColor.AutoSize = true;
-            this.labelBorderColor.Location = new System.Drawing.Point(323, 187);
+            this.labelBorderColor.Location = new System.Drawing.Point(574, 187);
             this.labelBorderColor.Name = "labelBorderColor";
             this.labelBorderColor.Size = new System.Drawing.Size(57, 12);
             this.labelBorderColor.TabIndex = 14;
@@ -478,7 +490,7 @@
             // pictureBoxBorderColor
             // 
             this.pictureBoxBorderColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxBorderColor.Location = new System.Drawing.Point(326, 202);
+            this.pictureBoxBorderColor.Location = new System.Drawing.Point(577, 202);
             this.pictureBoxBorderColor.Name = "pictureBoxBorderColor";
             this.pictureBoxBorderColor.Size = new System.Drawing.Size(50, 50);
             this.pictureBoxBorderColor.TabIndex = 13;
@@ -487,7 +499,7 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(325, 266);
+            this.buttonSave.Location = new System.Drawing.Point(483, 267);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(75, 23);
             this.buttonSave.TabIndex = 15;
@@ -497,7 +509,7 @@
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(420, 266);
+            this.buttonCancel.Location = new System.Drawing.Point(578, 267);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 16;
@@ -507,7 +519,7 @@
             // 
             // buttonDefault
             // 
-            this.buttonDefault.Location = new System.Drawing.Point(180, 266);
+            this.buttonDefault.Location = new System.Drawing.Point(338, 267);
             this.buttonDefault.Name = "buttonDefault";
             this.buttonDefault.Size = new System.Drawing.Size(124, 23);
             this.buttonDefault.TabIndex = 17;
@@ -515,11 +527,75 @@
             this.buttonDefault.UseVisualStyleBackColor = true;
             this.buttonDefault.Click += new System.EventHandler(this.buttonDefault_Click);
             // 
+            // labelPlayerColor4
+            // 
+            this.labelPlayerColor4.AutoSize = true;
+            this.labelPlayerColor4.Location = new System.Drawing.Point(339, 187);
+            this.labelPlayerColor4.Name = "labelPlayerColor4";
+            this.labelPlayerColor4.Size = new System.Drawing.Size(107, 12);
+            this.labelPlayerColor4.TabIndex = 21;
+            this.labelPlayerColor4.Text = "プレイヤー4のコマの色";
+            // 
+            // pictureBoxPlayerColor4
+            // 
+            this.pictureBoxPlayerColor4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxPlayerColor4.Location = new System.Drawing.Point(364, 202);
+            this.pictureBoxPlayerColor4.Name = "pictureBoxPlayerColor4";
+            this.pictureBoxPlayerColor4.Size = new System.Drawing.Size(50, 50);
+            this.pictureBoxPlayerColor4.TabIndex = 20;
+            this.pictureBoxPlayerColor4.TabStop = false;
+            this.pictureBoxPlayerColor4.Click += new System.EventHandler(this.pictureBoxPlayerColor4_Click);
+            // 
+            // labelPlayerColor3
+            // 
+            this.labelPlayerColor3.AutoSize = true;
+            this.labelPlayerColor3.Location = new System.Drawing.Point(230, 187);
+            this.labelPlayerColor3.Name = "labelPlayerColor3";
+            this.labelPlayerColor3.Size = new System.Drawing.Size(107, 12);
+            this.labelPlayerColor3.TabIndex = 19;
+            this.labelPlayerColor3.Text = "プレイヤー3のコマの色";
+            // 
+            // pictureBoxPlayerColor3
+            // 
+            this.pictureBoxPlayerColor3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxPlayerColor3.Location = new System.Drawing.Point(256, 202);
+            this.pictureBoxPlayerColor3.Name = "pictureBoxPlayerColor3";
+            this.pictureBoxPlayerColor3.Size = new System.Drawing.Size(50, 50);
+            this.pictureBoxPlayerColor3.TabIndex = 18;
+            this.pictureBoxPlayerColor3.TabStop = false;
+            this.pictureBoxPlayerColor3.Click += new System.EventHandler(this.pictureBoxPlayerColor3_Click);
+            // 
+            // radioButtonPlayer4
+            // 
+            this.radioButtonPlayer4.AutoSize = true;
+            this.radioButtonPlayer4.Location = new System.Drawing.Point(243, 19);
+            this.radioButtonPlayer4.Name = "radioButtonPlayer4";
+            this.radioButtonPlayer4.Size = new System.Drawing.Size(76, 16);
+            this.radioButtonPlayer4.TabIndex = 23;
+            this.radioButtonPlayer4.TabStop = true;
+            this.radioButtonPlayer4.Text = "プレイヤー4";
+            this.radioButtonPlayer4.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonPlayer3
+            // 
+            this.radioButtonPlayer3.AutoSize = true;
+            this.radioButtonPlayer3.Location = new System.Drawing.Point(165, 19);
+            this.radioButtonPlayer3.Name = "radioButtonPlayer3";
+            this.radioButtonPlayer3.Size = new System.Drawing.Size(76, 16);
+            this.radioButtonPlayer3.TabIndex = 22;
+            this.radioButtonPlayer3.TabStop = true;
+            this.radioButtonPlayer3.Text = "プレイヤー3";
+            this.radioButtonPlayer3.UseVisualStyleBackColor = true;
+            // 
             // SettingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(514, 301);
+            this.ClientSize = new System.Drawing.Size(676, 311);
+            this.Controls.Add(this.labelPlayerColor4);
+            this.Controls.Add(this.pictureBoxPlayerColor4);
+            this.Controls.Add(this.labelPlayerColor3);
+            this.Controls.Add(this.pictureBoxPlayerColor3);
             this.Controls.Add(this.buttonDefault);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonSave);
@@ -559,6 +635,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerColor2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBackGroundColor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBorderColor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerColor4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerColor3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -606,5 +684,11 @@
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonDefault;
+        private System.Windows.Forms.Label labelPlayerColor4;
+        private System.Windows.Forms.PictureBox pictureBoxPlayerColor4;
+        private System.Windows.Forms.Label labelPlayerColor3;
+        private System.Windows.Forms.PictureBox pictureBoxPlayerColor3;
+        private System.Windows.Forms.RadioButton radioButtonPlayer4;
+        private System.Windows.Forms.RadioButton radioButtonPlayer3;
     }
 }
